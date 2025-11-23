@@ -1,8 +1,10 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, TrendingUp, Shield, Award, Users, MapPin, GraduationCap, Briefcase, DollarSign, Clock, Phone, Mail } from "lucide-react";
+import { CheckCircle2, TrendingUp, Shield, Award, Users, MapPin, GraduationCap, Briefcase, DollarSign, Clock, Phone, Mail, Flag } from "lucide-react";
 import trainingImage from "@/assets/training-facility.jpg";
 
 const Index = () => {
@@ -45,12 +47,70 @@ const Index = () => {
     { title: "CDL Instructor", pay: "$45,000 - $60,000/year", desc: "Train the next generation" },
   ];
 
+  const fundingOptions = [
+    {
+      icon: DollarSign,
+      title: "Private Student Financing",
+      desc: "MLS partners can finance up to 100% of tuition for qualified students, mirroring the DOCX funding overview.",
+    },
+    {
+      icon: Briefcase,
+      title: "Carrier Tuition Reimbursement",
+      desc: "Earn $100-$250 monthly reimbursements (80-100% total) once you hire on with a preferred carrier.",
+    },
+    {
+      icon: MapPin,
+      title: "State Workforce Grants",
+      desc: "Admissions advisors walk you through workforce board applications, just like the MLS content describes.",
+    },
+    {
+      icon: Shield,
+      title: "Tribal & Community Support",
+      desc: "Native American students can access tribal council grants with guided assistance from MLS staff.",
+    },
+    {
+      icon: Users,
+      title: "Out-of-Pocket Planning",
+      desc: "Plan housing, meals, DOT physicals, drug screens, and travel with transparent checklists from the brief.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Fuel Rebates & Incentives",
+      desc: "PFJ rebates and surcharge programs offset weekly expenses, keeping more settlement in your pocket.",
+    },
+  ];
+
+  const veteranHighlights = [
+    {
+      icon: Shield,
+      title: "VA & Post 9/11 Approved",
+      desc: "MLS is cleared for Veteran (BTW) Training, so GI Bill benefits can cover tuition and housing needs.",
+    },
+    {
+      icon: Flag,
+      title: "Mission-Ready Curriculum",
+      desc: "Structure, safety, and accountability mirror the values outlined for transitioning service members.",
+    },
+    {
+      icon: Briefcase,
+      title: "Career Placement Network",
+      desc: "International Recruiter Agency Partners secure pre-hire offers—even instructor pathways back home nightly.",
+    },
+    {
+      icon: Users,
+      title: "Transferable Skills",
+      desc: "Situational awareness, logistics, and leadership from the doc are celebrated and sharpened on the pad.",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
-      <Hero />
+      <Header />
+      <main>
+        <Hero />
 
       {/* Why MLS Companies Section */}
-      <section className="py-20 bg-muted">
+      <section id="why-mls" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-secondary text-secondary-foreground">Trusted Excellence</Badge>
@@ -77,7 +137,7 @@ const Index = () => {
       </section>
 
       {/* About Class A CDL Section */}
-      <section className="py-20 bg-background">
+      <section id="programs" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -169,7 +229,7 @@ const Index = () => {
       </section>
 
       {/* Training Features Section */}
-      <section className="py-20 bg-muted">
+      <section id="training" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-secondary text-secondary-foreground">Comprehensive Program</Badge>
@@ -193,7 +253,7 @@ const Index = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-background">
+      <section id="benefits" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-primary text-primary-foreground">Your Advantages</Badge>
@@ -228,7 +288,7 @@ const Index = () => {
       </section>
 
       {/* Career Outcomes Section */}
-      <section className="py-20 bg-muted">
+      <section id="careers" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-secondary text-secondary-foreground">Career Paths</Badge>
@@ -275,7 +335,7 @@ const Index = () => {
       </section>
 
       {/* ELDT Requirements Section */}
-      <section className="py-20 bg-background">
+      <section id="eldt" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -326,8 +386,36 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Funding & Financial Support Section */}
+      <section id="funding" className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-secondary text-secondary-foreground">Financial Clarity</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Funding Options Straight from the MLS Brief
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Use private financing, state or tribal support, and carrier reimbursement programs exactly as outlined in the official MLS Website content document.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {fundingOptions.map((option, index) => {
+              const Icon = option.icon;
+              return (
+                <Card key={index} className="p-6 border-border hover:shadow-lg transition-shadow">
+                  <Icon className="w-10 h-10 text-secondary mb-4" />
+                  <h3 className="text-xl font-bold text-foreground mb-2">{option.title}</h3>
+                  <p className="text-muted-foreground text-sm">{option.desc}</p>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Student Support Section */}
-      <section className="py-20 bg-muted">
+      <section id="services" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-secondary text-secondary-foreground">We Support You</Badge>
@@ -399,8 +487,43 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Veterans & Apprenticeships Section */}
+      <section id="veterans" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-primary text-primary-foreground">Veterans & Under 21 Drivers</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Built for Service Members and SDAP Candidates
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              The MLS Website document highlights VA-approved training, Post 9/11 GI Bill eligibility, and the Safe Driver Apprenticeship Pilot (SDAP) Program so veterans and drivers under 21 can launch interstate careers with confidence.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {veteranHighlights.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Card key={index} className="p-6 border-border hover:shadow-lg transition-shadow">
+                  <Icon className="w-10 h-10 text-secondary mb-4" />
+                  <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="mt-12 bg-muted p-8 rounded-lg max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-foreground mb-4">Why Veterans Thrive Here</h3>
+            <p className="text-muted-foreground">
+              Dependability, attention to detail, logistics know-how, and leadership—every attribute the DOCX listed—are embedded into daily training. Veterans can leverage VA benefits, keep family time with home-weekly carrier partners, and even transition into instructor or admissions careers when it is time to park the truck.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
-      <section className="py-20 bg-hero-gradient relative overflow-hidden">
+      <section id="contact" className="py-20 bg-hero-gradient relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <Clock className="w-16 h-16 text-secondary mx-auto mb-6" />
@@ -456,15 +579,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </main>
 
-      {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-primary-foreground/70">
-            © 2024 MLS Companies. All rights reserved. | FMCSA-Approved ELDT Provider
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
