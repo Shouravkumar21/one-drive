@@ -1,73 +1,39 @@
-# Welcome to your Lovable project
+# One Drive Realty Landing Experience
 
-## Project info
+This repo hosts the One Drive Realty landing experience built with Vite, React, TypeScript, Tailwind CSS, and shadcn/ui. All navigation and content blocks are powered by structured data collected from the original ODR document.
 
-**URL**: https://lovable.dev/projects/f601141b-ea40-40bb-8cc2-ced1f4706a87
+## Tech Stack
 
-## How can I edit this code?
+- Vite + React + TypeScript
+- Tailwind CSS with shadcn/ui primitives
+- Radix UI components for navigation menus and sheets
+- Lucide icons
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/f601141b-ea40-40bb-8cc2-ced1f4706a87) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The dev server runs at http://localhost:5173 by default.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Key Files
 
-**Use GitHub Codespaces**
+- `src/data/odrSections.json` – raw numbered section content from the brief.
+- `src/data/odrStructure.ts` – slug generation, grouped navigation data, and helpers.
+- `src/components` – shared UI like the header, hero, footer, and shadcn/ui exports.
+- `src/pages/Index.tsx` – renders the data-driven sections.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Building & Previewing
 
-## What technologies are used for this project?
+```bash
+npm run build
+npm run preview
+```
 
-This project is built with:
+`npm run build` emits production assets to `dist/`, and `npm run preview` serves them locally for final QA.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f601141b-ea40-40bb-8cc2-ced1f4706a87) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Deploy the `dist/` folder to any static host (Vercel, Netlify, S3/CloudFront, etc.). Automate builds with `npm ci && npm run build` in your CI workflow.
